@@ -178,7 +178,7 @@ img.portrait {
 
 .self ul li {
 	background-repeat: no-repeat;
-	padding-left:26px;
+	padding-left:0px;
 	background-position: 0 .1em;
 	height:25px;
 	display:block;

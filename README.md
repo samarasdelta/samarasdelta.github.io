@@ -1,4 +1,4 @@
-# Samaras Dimitrios | Software Engineer | CV
+# Samaras Dimitrios | Software Engineer | CV Page
 
 https://zummashu.github.io/CV.Z
 

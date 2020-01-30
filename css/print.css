@@ -52,8 +52,11 @@ a, a:hover, a:visited, a:active {
 h1 {
 	width:500px;
 	font-size:42pt;
+	text-align: left;
 	color:#1b4491;
-	margin-bottom:0;
+	margin-top:0px;
+	margin-bottom:10px;
+
 }
 
 h1 span {
@@ -64,17 +67,19 @@ h1 span {
 	color:#1b4491;
 }
 
+
 h2 {
-	width:180px;
+	width:200px;
 	height: 23px;
 	text-align: right;
 	float:left;
 	padding:0;
 	margin:0;
 	clear:both;
-	font-size:22pt;
-	margin-bottom:-12px;
+	font-size:22px;
 	color:#1b4491;
+	margin-bottom:-16px;
+	margin-left:-20px;
 }
 
 p {
@@ -105,6 +110,7 @@ h3 {
 	clear:both;
 	font-size: 13pt;
 	color:black;
+	margin-left:0pt;
 }
 
 em {

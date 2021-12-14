@@ -173,7 +173,6 @@ html, body {
   vertical-align: middle;
   display: table;
   width: 100%;
-  background-image: url("../../images/miro_rock_soul.png");
   background-size: 50%;
   background-position: 50%;
   background-repeat: no-repeat;
@@ -391,13 +390,13 @@ html, body {
 
 ::-webkit-scrollbar-thumb {
   background: #4C4C4C;
+  border-radius: 8px;
 }
 
 /* Handle on hover */
 
 ::-webkit-scrollbar-thumb:hover {
   background: #2c2c2c;
-  
 }
 
 /****** custom scrollbar *********/

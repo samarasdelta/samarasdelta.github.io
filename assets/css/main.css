@@ -338,6 +338,10 @@ html, body {
   margin-top: 15px;
 }
 
+.mycursor{
+  cursor: default;
+}
+
 /****** main content *********/
 
 /****** print icon *********/

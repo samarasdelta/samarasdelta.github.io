@@ -199,14 +199,14 @@ html, body {
 }
 
 .top .subtitle {
-  font-size: 15px;
+  font-size: 8px;
   margin-top: 10px;
   margin-bottom: 10px;
   font-style: italic;
 }
 
 .top .contact-information {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 300;
 }
 
@@ -435,4 +435,8 @@ a:hover {
 
 a:active {
   text-decoration: underline;
+}
+
+.link2{
+  color: rgb(83, 83, 231);
 }

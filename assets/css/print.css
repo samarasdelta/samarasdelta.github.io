@@ -1,3 +1,9 @@
 .anchor, .print.icon, .sidebar {
   display: none;
 }
+
+@media print {
+  body {
+    zoom: 81%;
+  }
+}

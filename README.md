@@ -1,5 +1,5 @@
 # Samaras Dimitrios | Software Engineer | CV Page
 
-https://zummashu.github.io
+https://samarasdelta.github.io/
 
 This is an HTML edition of my CV, with an export option as pdf.

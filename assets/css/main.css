@@ -441,3 +441,8 @@ a:active {
 .link2{
   color: rgb(83, 83, 231);
 }
+
+.btnlang {
+  float: right;
+  padding: 0.4rem 0.4rem 0 0;
+}

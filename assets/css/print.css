@@ -1,5 +1,5 @@
-.anchor, .print.icon, .sidebar {
-  display: none;
+.anchor, .print.icon, .sidebar, .btnlang {
+  display: none!important;
 }
 
 @media print {

@@ -5,4 +5,7 @@ These links will take you to a dynamic representation of my skills, experiences,
 ```
 https://samarasdelta.bio || https://samarasdelta.github.io
 ```
+```
+https://samarasdelta.github.io
+```
 Additionally, you'll find a convenient option to export my CV into a PDF file.

@@ -98,11 +98,12 @@ html, body {
 .profilePicture {
   margin: 0 auto;
   overflow: hidden;
+  filter: grayscale(1);
   text-align: center;
-  background-image: url('../../images/samd.png');
-  background-position: center center;
+  background-image: url('../../images/samd.jpeg');
+  background-position: center 40%;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 125%;
   width: 75%;
   padding-bottom: 75%;
   border-radius: 100%;

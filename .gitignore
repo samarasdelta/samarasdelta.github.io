@@ -1,0 +1,39 @@
+# Ignore node_modules (for Node.js projects)
+node_modules/
+
+# Ignore build output (for most programming environments)
+build/
+dist/
+
+# Ignore log files
+*.log
+
+# Ignore OS-specific files (Mac, Windows, Linux)
+.DS_Store
+Thumbs.db
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+
+# Ignore compiled source (e.g., Java, .class files)
+*.class
+
+# Ignore compiled Python files
+*.pyc
+*.pyo
+
+# Ignore environment variables file (for Python, Node.js, etc.)
+.env
+
+# Ignore dependency directories
+bower_components/
+
+# Ignore coverage reports (for testing frameworks)
+coverage/
+*.lcov
+
+# Ignore temporary files
+*.swp
+*.bak
+*.tmp

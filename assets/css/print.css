@@ -25,6 +25,12 @@ html, body{
   color-adjust: exact;
 }
 
+/* Drop the two grey background bands (the header and the page body) so
+   the printout is plain white instead of shaded. */
+.wrapper, .main, .top, .top .title {
+  background: #fff;
+}
+
 @media print {
   body {
     zoom: 64.6%;

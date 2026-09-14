@@ -64,38 +64,17 @@ html, body{
    (align-items: stretch) to match the full height of every item in the
    section - over 1000px tall for Working Experience. Chromium refuses to
    fragment a flex box like that across a page break: it shoves the whole
-   thing onto a fresh page (leaving the previous page blank) and then, once
-   it still doesn't fit on a single page anyway, breaks it up with the
-   icon's auto-margin centering recalculated per fragment - producing a
-   duplicated, misplaced icon. Rebuilding the same rail-with-centered-icon
-   look out of a plain block with a border (which paginates like ordinary
-   text) plus one absolutely-positioned icon avoids that failure mode while
-   keeping the same visual and the same icon. */
+   thing onto a fresh page (leaving the previous page blank) and then,
+   once it still doesn't fit on a single page anyway, breaks it up badly.
+   A plain block paginates like ordinary text instead. */
 .main .section .container {
   display: block;
-  position: relative;
-  padding-left: 60px;
-  box-sizing: border-box;
 }
 
+/* Drop the section icons (code/hat/certificate) and their rail - the
+   items no longer need the space reserved for them. */
 .main .section .iconHug {
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 50px;
-  max-width: none;
-  height: auto;
-  margin-right: 0;
-}
-
-.main .section .iconHug .icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: 0;
-  transform: translate(-50%, -50%);
+  display: none;
 }
 
 .main .section .items {

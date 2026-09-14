@@ -1,5 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" fill="#003057"/>
-  <text x="32" y="39" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700"
-    fill="#ffffff" text-anchor="middle">SAP</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 340" width="340" height="340">
+  <defs>
+    <linearGradient id="sapBlue" x1="0%" y1="0%" x2="75%" y2="100%">
+      <stop offset="0%" stop-color="#4FC3F7"/>
+      <stop offset="45%" stop-color="#1E88C7"/>
+      <stop offset="100%" stop-color="#0B3C6E"/>
+    </linearGradient>
+  </defs>
+  <polygon points="60,120 300,120 220,240 60,240" fill="url(#sapBlue)"/>
+  <text x="88" y="200" font-family="Arial, Helvetica, sans-serif" font-size="82" font-weight="900"
+    fill="#ffffff" letter-spacing="-2">SAP</text>
 </svg>

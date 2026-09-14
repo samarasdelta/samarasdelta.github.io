@@ -15,8 +15,15 @@ html, body{
    margin-top: -20px;
 }
 
-.section{
-  margin-top: -15px;
+/* Give every section (Working Experience, Education, Certifications)
+   the same, smaller gap around it instead of the screen design's
+   30px top/bottom padding plus an uneven -15px offset. */
+.section {
+  margin-top: 0;
+}
+
+.main .section {
+  padding: 12px 0;
 }
 
 * {

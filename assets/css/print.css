@@ -1,17 +1,88 @@
+/* Same content is shown/hidden as before: only these are removed from the printout. */
 .anchor, .print.icon, .sidebar, .btnlang {
-  display: none!important;
+  display: none !important;
 }
 
-html, body{
-   margin-top: -20px;
+@page {
+  size: A4;
+  margin: 12mm 14mm;
 }
 
-.section{
-  margin-top: -15px;
+html, body {
+  width: auto;
+  height: auto;
+  margin: 0;
+  background: #fff;
 }
 
-@media print {
-  body {
-    zoom: 64.6%;
-  }
+* {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  color-adjust: exact;
+}
+
+/* The screen layout is a two-column flexbox (sidebar + main). With the
+   sidebar hidden, printing still inherited that flex context, which made
+   Chromium mishandle page breaks. Flattening everything to normal block
+   flow lets the browser paginate it like a regular document. */
+.wrapper, .wrapper > *, .main {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  flex: none;
+}
+
+.top {
+  margin: 0 0 20px 0;
+}
+
+.main .section {
+  margin-left: 0;
+  padding: 15px 0;
+}
+
+.horizonLine {
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+/* iconHug used to be a flex sibling stretched (align-items: stretch) to the
+   full height of every item in the section - sometimes 1000px+ tall for
+   Working Experience. A box that tall can't fragment across pages cleanly,
+   which is what produced the blank page and the duplicated/misplaced icon.
+   For print it becomes a small badge sitting above its section's items
+   instead, keeping the same icon but no longer spanning page breaks. */
+.main .section .container {
+  display: block;
+}
+
+.main .section .iconHug {
+  display: block;
+  width: auto;
+  max-width: none;
+  height: auto;
+  border: none;
+  margin: 0 0 10px 0;
+}
+
+.main .section .iconHug .icon {
+  margin: 0;
+  width: 36px;
+  height: 36px;
+}
+
+.main .section .items {
+  padding-right: 0;
+}
+
+.main .section .item {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  margin: 15px 0;
+}
+
+.entity {
+  break-inside: avoid;
+  page-break-inside: avoid;
 }

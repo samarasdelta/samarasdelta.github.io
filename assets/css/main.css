@@ -225,9 +225,24 @@ html, body {
 }
 
 @media all and (min-width: 768px) {
+  /* At medium/large sizes this should look exactly like the original
+     single-line "email | phone | LinkedIn" text, not three columns
+     stretched across the full row width - so undo the column sizing
+     and lay the items out as inline text with the same " | "
+     separators instead. */
+  .top .contact-information .row {
+    display: block;
+  }
+
   .top .contact-information .col-md-4 {
-    flex: 0 0 33.3333%;
-    max-width: 33.3333%;
+    display: inline;
+    flex: none;
+    max-width: none;
+    padding: 0;
+  }
+
+  .top .contact-information .col-md-4:not(:last-child)::after {
+    content: " | ";
   }
 }
 

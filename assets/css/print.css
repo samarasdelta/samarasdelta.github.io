@@ -3,6 +3,14 @@
   display: none!important;
 }
 
+/* The browser's default print margins leave a lot of unused space on
+   every edge of the page. Shrinking them lets the same content use more
+   of the sheet instead of sitting in a narrow column with dead space
+   around it. */
+@page {
+  margin: 10mm;
+}
+
 html, body{
    margin-top: -20px;
 }

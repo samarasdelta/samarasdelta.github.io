@@ -26,9 +26,32 @@ html, body{
 }
 
 /* Drop the two grey background bands (the header and the page body) so
-   the printout is plain white instead of shaded. */
+   the printout is plain white instead of shaded. !important guards
+   against the source-order cascade in case a browser/cache serves an
+   older copy of main.css alongside this file. */
 .wrapper, .main, .top, .top .title {
-  background: #fff;
+  background: #fff !important;
+}
+
+/* The header's email/phone/LinkedIn row switches to one line via a
+   min-width: 768px query on screen, but a real print page's computed
+   content width doesn't reliably clear that breakpoint (it depends on
+   the browser/printer's own margins, not just the @page rule above).
+   Force the one-line layout unconditionally for print instead of
+   depending on that width match. */
+.top .contact-information .row {
+  display: block;
+}
+
+.top .contact-information .col-md-4 {
+  display: inline;
+  flex: none;
+  max-width: none;
+  padding: 0;
+}
+
+.top .contact-information .col-md-4:not(:last-child)::after {
+  content: " | ";
 }
 
 @media print {

@@ -1,18 +1,14 @@
 /* Same content is shown/hidden as before: only these are removed from the printout. */
 .anchor, .print.icon, .sidebar, .btnlang {
-  display: none !important;
+  display: none!important;
 }
 
-@page {
-  size: A4;
-  margin: 12mm 14mm;
+html, body{
+   margin-top: -20px;
 }
 
-html, body {
-  width: auto;
-  height: auto;
-  margin: 0;
-  background: #fff;
+.section{
+  margin-top: -15px;
 }
 
 * {
@@ -21,67 +17,57 @@ html, body {
   color-adjust: exact;
 }
 
-/* The screen layout is a two-column flexbox (sidebar + main). With the
-   sidebar hidden, printing still inherited that flex context, which made
-   Chromium mishandle page breaks. Flattening everything to normal block
-   flow lets the browser paginate it like a regular document. */
-.wrapper, .wrapper > *, .main {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  flex: none;
+@media print {
+  body {
+    zoom: 64.6%;
+  }
 }
 
-.top {
-  margin: 0 0 20px 0;
-}
-
-.main .section {
-  margin-left: 0;
-  padding: 15px 0;
-}
-
-.horizonLine {
-  break-after: avoid;
-  page-break-after: avoid;
-}
-
-/* iconHug used to be a flex sibling stretched (align-items: stretch) to the
-   full height of every item in the section - sometimes 1000px+ tall for
-   Working Experience. A box that tall can't fragment across pages cleanly,
-   which is what produced the blank page and the duplicated/misplaced icon.
-   For print it becomes a small badge sitting above its section's items
-   instead, keeping the same icon but no longer spanning page breaks. */
+/* .container used to be display:flex with .iconHug stretched
+   (align-items: stretch) to match the full height of every item in the
+   section - over 1000px tall for Working Experience. Chromium refuses to
+   fragment a flex box like that across a page break: it shoves the whole
+   thing onto a fresh page (leaving the previous page blank) and then, once
+   it still doesn't fit on a single page anyway, breaks it up with the
+   icon's auto-margin centering recalculated per fragment - producing a
+   duplicated, misplaced icon. Rebuilding the same rail-with-centered-icon
+   look out of a plain block with a border (which paginates like ordinary
+   text) plus one absolutely-positioned icon avoids that failure mode while
+   keeping the same visual and the same icon. */
 .main .section .container {
   display: block;
+  position: relative;
+  padding-left: 60px;
+  box-sizing: border-box;
 }
 
 .main .section .iconHug {
   display: block;
-  width: auto;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 50px;
   max-width: none;
   height: auto;
-  border: none;
-  margin: 0 0 10px 0;
+  margin-right: 0;
 }
 
 .main .section .iconHug .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   margin: 0;
-  width: 36px;
-  height: 36px;
+  transform: translate(-50%, -50%);
 }
 
 .main .section .items {
   padding-right: 0;
 }
 
-.main .section .item {
-  break-inside: avoid;
-  page-break-inside: avoid;
-  margin: 15px 0;
-}
-
+/* Keep a logo + title + company line intact, but let long descriptions and
+   bullet lists break across a page like normal text - forcing every whole
+   item to avoid breaking is what produced large blank gaps at page ends. */
 .entity {
   break-inside: avoid;
   page-break-inside: avoid;

@@ -3,37 +3,34 @@
   display: none!important;
 }
 
-/* The browser's default print margins leave a lot of unused space on
-   every edge of the page. Shrinking them lets the same content use more
-   of the sheet instead of sitting in a narrow column with dead space
-   around it. */
+/* @page margin can be silently overridden by the browser's own print
+   dialog (its Margins dropdown - Default/None/Custom - takes over in
+   several browsers), which is the likely reason the per-section
+   margin/width tweaks that used to live here kept landing differently
+   across browsers. Padding on body isn't subject to that dropdown at
+   all, so @page is reset to 0 and this single, uniform inset is the
+   only thing controlling whitespace around the page now. */
 @page {
-  margin: 10mm;
+  margin: 0;
 }
 
-html, body{
-   margin-top: -20px;
+html, body {
+  margin: 0;
+  padding: 10pt;
+  box-sizing: border-box;
 }
 
 /* Give every section (Working Experience, Education, Certifications)
    the same, smaller gap around it instead of the screen design's
-   30px top/bottom padding plus an uneven -15px offset. */
+   30px top/bottom padding plus an uneven -15px offset, and drop the
+   50px left-only inset (meant to line sections up against the
+   sidebar) now that the uniform body padding above handles spacing. */
 .section {
   margin-top: 0;
 }
 
 .main .section {
   padding: 12px 0;
-  /* The screen design insets sections 50px from the left (to line up
-     visually against the sidebar) with nothing matching it on the
-     right, which read as a wide left margin and a much narrower right
-     one. Just zeroing the left margin let the box's auto width grow to
-     fill the extra space instead of simply shifting left, so text ran
-     past the page's right edge. Pinning width/box-sizing explicitly
-     keeps it contained regardless of how the browser resolves "auto"
-     here. */
-  width: 100%;
-  box-sizing: border-box;
   margin-left: 0;
   margin-right: 0;
 }

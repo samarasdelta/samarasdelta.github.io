@@ -24,6 +24,13 @@ html, body{
 
 .main .section {
   padding: 12px 0;
+  /* The screen design insets sections 50px from the left (to line up
+     visually against the sidebar) with nothing matching it on the
+     right. With no sidebar in print, that left-only margin made the
+     page read as having a wide left margin and a much narrower right
+     one. Removing it lines both sides up evenly against the @page
+     margin instead. */
+  margin-left: 0;
 }
 
 * {

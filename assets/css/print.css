@@ -11,6 +11,7 @@
    all, so @page is reset to 0 and this single, uniform inset is the
    only thing controlling whitespace around the page now. */
 @page {
+  size: A4;
   margin: 0;
 }
 
@@ -70,9 +71,13 @@ html, body {
   content: " | ";
 }
 
+/* index.js measures the actual content height right before printing and
+   sets --print-zoom low enough that it fits within a page budget (see
+   fitPrintToPages there); 64.6% is only the fallback for a print path
+   that skipped that step (e.g. JS disabled). */
 @media print {
   body {
-    zoom: 64.6%;
+    zoom: var(--print-zoom, 64.6%);
   }
 }
 

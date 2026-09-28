@@ -214,15 +214,14 @@ html, body {
 
 /* fa-envelope and fa-phone are drawn with a larger visual footprint in
    their icon box than the compact fa-linkedin brand square, so at the
-   same font-size they read as bigger and sit differently against the
-   text baseline. Pin all three to the same width/alignment instead of
-   trusting each glyph's own proportions to happen to match. */
-.top .contact-information .fa {
-  display: inline-block;
-  width: 1.1em;
-  font-size: 0.9em;
-  text-align: center;
-  vertical-align: middle;
+   same font-size they read as bigger than it. Scale only these two down
+   - fa-linkedin keeps its original, correctly-aligned default styling
+   untouched. font-size alone (no display/width/vertical-align, which
+   shifted baseline alignment last time) keeps them sitting on the same
+   baseline as the surrounding text and the LinkedIn icon. */
+.top .contact-information .fa-envelope,
+.top .contact-information .fa-phone {
+  font-size: 0.85em;
 }
 
 .top .contact-information .row {

@@ -212,6 +212,19 @@ html, body {
   margin-top: 10px;
 }
 
+/* fa-envelope and fa-phone are drawn with a larger visual footprint in
+   their icon box than the compact fa-linkedin brand square, so at the
+   same font-size they read as bigger and sit differently against the
+   text baseline. Pin all three to the same width/alignment instead of
+   trusting each glyph's own proportions to happen to match. */
+.top .contact-information .fa {
+  display: inline-block;
+  width: 1.1em;
+  font-size: 0.9em;
+  text-align: center;
+  vertical-align: middle;
+}
+
 .top .contact-information .row {
   display: flex;
   flex-wrap: wrap;

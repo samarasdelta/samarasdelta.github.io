@@ -13,7 +13,7 @@
     var wrapper = document.querySelector(".wrapper");
     if (!wrapper) return;
 
-    var pageHeightPx = 297 * (96 / 25.4); // A4 height, matches print.css's @page size
+    var pageHeightPx = 297 * (96 / 25.4); // A4 height, used as the budget reference
     var paddingPx = 10 * (96 / 72); // matches print.css's html/body padding: 10pt
     var usablePerPagePx = pageHeightPx - 2 * paddingPx;
     var budgetPx = MAX_PRINT_PAGES * usablePerPagePx;

@@ -11,7 +11,6 @@
    all, so @page is reset to 0 and this single, uniform inset is the
    only thing controlling whitespace around the page now. */
 @page {
-  size: A4;
   margin: 0;
 }
 

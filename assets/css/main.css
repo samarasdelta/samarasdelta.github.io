@@ -212,6 +212,16 @@ html, body {
   margin-top: 10px;
 }
 
+/* Some mobile browsers (notably iOS Safari's data detectors) turn plain
+   phone numbers and email addresses into real tel:/mailto: links at
+   render time even though the markup has no <a> there, picking up the
+   browser's default underlined/colored link style. Neutralize that the
+   same way links are already treated elsewhere (.entity a). */
+.top .contact-information a {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* fa-envelope and fa-phone are drawn with a larger visual footprint in
    their icon box than the compact fa-linkedin brand square, so at the
    same font-size they read as bigger than it. Scale only these two down
